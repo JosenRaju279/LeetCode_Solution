@@ -16,29 +16,14 @@ public class Combination_Sum {
 
         // Explore choices
         for (int i = start; i < candidates.length; i++) {
-
-            // If number exceeds target, skip
             if (candidates[i] > target)
                 continue;
 
-            // Choose
             current.add(candidates[i]);
 
-            // Recurse (same index i because reuse allowed)
             backtrack(candidates, target - candidates[i], i, current, result);
 
-            // Backtrack
             current.remove(current.size() - 1);
         }
-    }
-
-    public static void main(String[] args) {
-        CombinationSum obj = new CombinationSum();
-
-        int[] candidates = { 2, 3, 6, 7 };
-        int target = 7;
-
-        List<List<Integer>> result = obj.combinationSum(candidates, target);
-        System.out.println(result);
     }
 }
