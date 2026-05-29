@@ -25,7 +25,7 @@ class Reverse_Linked_List {
             ListNode nextnode = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = nextnode;
+            curr = nextnode;Reverse Linked List
         }
         return prev;
     }
