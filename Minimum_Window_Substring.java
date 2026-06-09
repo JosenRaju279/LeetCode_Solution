@@ -1,0 +1,42 @@
+public class Minimum_Window_Substring {
+    public String minWindow(String s, String t) {
+        if (s == null || t == null || s.length() < t.length())
+            return "";
+
+        int[] freq = new int[128];
+
+        for (char c : t.toCharArray()) {
+            freq[c]++;
+        }
+
+        int left = 0;
+        int count = t.length();
+        int minlen = Integer.MAX_VALUE;
+        int start = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char r = s.charAt(right);
+
+            if (freq[r] > 0) {
+                count--;
+            }
+            freq[r]--;
+
+            while (count == 0) {
+                if (right - left + 1 < minlen) {
+                    minlen = right - left + 1;
+                    start = left;
+                }
+
+                char l = s.charAt(left);
+                freq[l]++;
+
+                if (freq[l] > 0) {
+                    count++;
+                }
+                left++;
+            }
+        }
+        return minlen == Integer.MAX_VALUE ? "" : s.substring(start, start + minlen);
+    }
+}
