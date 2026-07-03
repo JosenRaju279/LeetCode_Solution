@@ -16,6 +16,9 @@ public class ValidateIPAddress {
 
         for (String part : parts) {
 
+            if (part.length() > 3)
+                return false;
+
             if (part.length() == 0)
                 return false;
 
