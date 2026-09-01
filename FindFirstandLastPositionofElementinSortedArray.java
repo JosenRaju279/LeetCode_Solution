@@ -8,10 +8,10 @@ public class FindFirstandLastPositionofElementinSortedArray {
 
     private int findfirst(int[] nums, int target) {
         int left = 0;
-        int right = nums.length;
+        int right = nums.length - 1;
         int result = -1;
 
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
 
             if (nums[mid] == target) {
@@ -28,15 +28,15 @@ public class FindFirstandLastPositionofElementinSortedArray {
 
     private int findlast(int[] nums, int target) {
         int left = 0;
-        int right = nums.length;
+        int right = nums.length - 1;
         int result = -1;
 
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
 
             if (nums[mid] == target) {
                 result = mid;
-                left = mid;
+                left = mid + 1;
             } else if (nums[mid] > target) {
                 right = mid - 1;
             } else {
