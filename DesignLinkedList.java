@@ -60,6 +60,7 @@ public class DesignLinkedList {
 
         if (index == 0) {
             addAtHead(val);
+            return;
         }
 
         Node newNode = new Node(val);
@@ -76,7 +77,7 @@ public class DesignLinkedList {
     }
 
     public void deleteAtIndex(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             return;
         }
 
