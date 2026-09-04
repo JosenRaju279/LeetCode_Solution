@@ -1,0 +1,29 @@
+public class MaximumOddBinaryNumber {
+    int ones = 0;
+
+    for(
+    char c:s.toCharArray())
+    {
+        if (c == '1') {
+            ones++;
+        }
+    }
+
+    StringBuilder ans = new StringBuilder();
+
+    for(
+    int i = 0;i<ones-1;i++)
+    {
+        ans.append('1');
+    }
+
+    for(
+    int i = ones;i<s.length();i++)
+    {
+        ans.append('0');
+    }
+
+    ans.append('1');
+
+    return ans.toString();
+}
