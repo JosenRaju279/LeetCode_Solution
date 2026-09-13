@@ -1,19 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.tree.TreeNode;
+
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
 
-        while (current != null || !stack.isEmpty()) {
-            while (current != null) {
-                stack.push(current);
-                current = current.left;
-            }
-            current = stack.pop();
-            result.add(current.val);
-            current = current.right;
-        }
+        preorder(root, result);
 
         return result;
+    }
+
+    private void preorder(TreeNode root, List<Integer> result) {
+        if (root == null) {
+            return;
+        }
+
+        preorder(root.left, result);
+
+        result.add(root.val);
+
+        preorder(root.right, result);
     }
 }
